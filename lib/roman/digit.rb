@@ -9,10 +9,6 @@ module Roman
         new(name: name, value: 0, max_consecutive_allowed: 0, allowed_next_digits: [])
       end
 
-      def zero
-        @zero ||= new(name: "Zero", value: 0, max_consecutive_allowed: 0, allowed_next_digits: [])
-      end
-
       def i
         @i ||= new(name: "I", value: 1, max_consecutive_allowed: 3, allowed_next_digits: [v, x])
       end
@@ -70,7 +66,7 @@ module Roman
     end
 
     def inspect
-      "#{name}(#{value})"
+      to_s
     end
 
     def greater_than?(other_digit)

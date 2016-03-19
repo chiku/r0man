@@ -11,9 +11,7 @@ Gem::Specification.new do |s|
   s.authors                  = ["Chirantan Mitra"]
   s.email                    = ["chirantan.mitra@gmail.com"]
   s.summary                  = "Roman number conversions"
-  s.description              = <<-EOS
-Convert hindu numbers to roman - back & forth
-EOS
+  s.description              = "Convert Roman numbers to Indian"
   s.license                  = "MIT"
   s.rubyforge_project        = "roman"
   s.files                    = Dir.glob("lib/**/*")

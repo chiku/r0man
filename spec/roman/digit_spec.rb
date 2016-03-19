@@ -20,7 +20,7 @@ describe "Roman digit" do
       Roman::Digit.x.value_compared_to(Roman::Digit.v).must_equal 10
     end
 
-    it "knows that it exceeds the smaller digit" do
+    it "knows that it is greater than the smaller digit" do
       Roman::Digit.x.greater_than?(Roman::Digit.v).must_equal true
     end
   end
@@ -40,7 +40,7 @@ describe "Roman digit" do
       Roman::Digit.x.value_compared_to(Roman::Digit.l).must_equal -10
     end
 
-    it "knows that it doesn't exceed the larger digit" do
+    it "knows that it not greater than the larger digit" do
       Roman::Digit.x.greater_than?(Roman::Digit.l).must_equal false
     end
   end
