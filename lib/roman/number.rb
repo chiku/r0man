@@ -6,15 +6,19 @@ module Roman
     validate :previous_digit_are_allowed
     validate :same_digit_is_not_added_to_and_subtracted_from_a_larger_digit
 
-    def self.parse(str)
-      digits = str.each_char.map { |d| Roman::Digit.parse(d) }
-      valid, invalid = digits.partition { |digit| digit.value > 0 } 
-      number = new(*valid)
-      if invalid.count > 0
-         invalid_letters = invalid.map(&:name).join(", ")
-        number.add_error("Number contains invalid characters: #{invalid_letters}")
+    class << self
+      def parse(str)
+        digits = str.each_char.map { |d| Roman::Digit.parse(d) }
+        valid, invalid = digits.partition(&:valid?)
+
+        number = new(*valid)
+        unless invalid.empty?
+          invalid_letters = invalid.map(&:name).join(", ")
+          number.add_error("Number contains invalid characters: #{invalid_letters}")
+        end
+
+        number
       end
-      number
     end
 
     def initialize(*digits)

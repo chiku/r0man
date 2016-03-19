@@ -5,31 +5,39 @@ require_relative "../../lib/roman/number"
 require_relative "../../lib/roman/maximum_consecutive_count"
 
 describe "Roman number" do
-  describe "when all values are same" do
-    it "is the sum of the values" do
-      Roman::Number.new(Roman::Digit.i, Roman::Digit.i, Roman::Digit.i).value.must_equal 3
-    end
-  end
-
-  describe "when a smaller digit follows a larger digit" do
-    it "is the sum of the values" do
-      Roman::Number.new(Roman::Digit.v, Roman::Digit.i).value.must_equal 6
-    end
-  end
-
-  describe "when a smaller digit preceeds a larger digit" do
-    it "the value of the smaller digit is subtracted" do
-      Roman::Number.new(Roman::Digit.i, Roman::Digit.v).value.must_equal 4
-    end
-  end
-
-  describe "when a smaller digit is between larger digits" do
-    it "the value of the smaller digit is subtracted from the sum of the larger digits" do
-      Roman::Number.new(Roman::Digit.v, Roman::Digit.i, Roman::Digit.v).value.must_equal 9
-    end
-  end
-
   describe ".parse" do
+    describe "when all values are same" do
+      let(:number) { Roman::Number.parse("III") }
+
+      it "is the sum of the values" do
+        number.value.must_equal 3
+      end
+    end
+
+    describe "when a smaller digit follows a larger digit" do
+      let(:number) { Roman::Number.parse("VI") }
+
+      it "is the sum of the values" do
+        number.value.must_equal 6
+      end
+    end
+
+    describe "when a smaller digit preceeds a larger digit" do
+      let(:number) { Roman::Number.parse("IV") }
+
+      it "the value of the smaller digit is subtracted" do
+        number.value.must_equal 4
+      end
+    end
+
+    describe "when a smaller digit is between larger digits" do
+      let(:number) { Roman::Number.parse("VIV") }
+
+      it "the value of the smaller digit is subtracted from the sum of the larger digits" do
+        number.value.must_equal 9
+      end
+    end
+
     describe "when all letters are known" do
       let(:number) { Roman::Number.parse("IV") }
 

@@ -6,7 +6,7 @@ require_relative "../../lib/roman/maximum_consecutive_count"
 
 describe "Roman number" do
   describe "when a number has three consecutive I" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.i, Roman::Digit.i) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::I, Roman::Digit::I) }
 
     it "has no errors" do
       number.errors.must_be_empty
@@ -14,7 +14,7 @@ describe "Roman number" do
   end
 
   describe "when a number has one V" do
-    let(:number) { Roman::Number.new(Roman::Digit.v) }
+    let(:number) { Roman::Number.new(Roman::Digit::V) }
 
     it "has no errors" do
       number.errors.must_be_empty
@@ -22,7 +22,7 @@ describe "Roman number" do
   end
 
   describe "when in a number has four consecutive I" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.i, Roman::Digit.i, Roman::Digit.i) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::I, Roman::Digit::I, Roman::Digit::I) }
 
     it "has errors" do
       number.errors.must_equal ["I(1) occurs 4 times whereas it is allowed only 3 times"]
@@ -30,7 +30,7 @@ describe "Roman number" do
   end
 
   describe "when a number has two consecutive V" do
-    let(:number) { Roman::Number.new(Roman::Digit.v, Roman::Digit.v) }
+    let(:number) { Roman::Number.new(Roman::Digit::V, Roman::Digit::V) }
 
     it "has errors" do
       number.errors.must_equal ["V(5) occurs 2 times whereas it is allowed only 1 times"]
@@ -38,7 +38,7 @@ describe "Roman number" do
   end
 
   describe "when I comes before V" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.v) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::V) }
 
     it "has no errors" do
       number.errors.must_be_empty
@@ -46,7 +46,7 @@ describe "Roman number" do
   end
 
   describe "when I comes before X" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.x) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::X) }
 
     it "has no errors" do
       number.errors.must_be_empty
@@ -54,7 +54,7 @@ describe "Roman number" do
   end
 
   describe "when L is between X and I" do
-    let(:number) { Roman::Number.new(Roman::Digit.x, Roman::Digit.l, Roman::Digit.i) }
+    let(:number) { Roman::Number.new(Roman::Digit::X, Roman::Digit::L, Roman::Digit::I) }
 
     it "has no errors" do
       number.errors.must_be_empty
@@ -62,7 +62,7 @@ describe "Roman number" do
   end
 
   describe "when I comes before L" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.l) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::L) }
 
     it "has errors" do
       number.errors.must_equal ["I(1) cannot be subtracted from L(50)"]
@@ -70,7 +70,7 @@ describe "Roman number" do
   end
 
   describe "when same digit is added to and subtracted from a bigger digit" do
-    let(:number) { Roman::Number.new(Roman::Digit.i, Roman::Digit.x, Roman::Digit.i) }
+    let(:number) { Roman::Number.new(Roman::Digit::I, Roman::Digit::X, Roman::Digit::I) }
 
     it "has errors" do
       number.errors.must_equal ["I(1) cannot be added to and subtracted from X(10)"]
