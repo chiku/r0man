@@ -14,10 +14,16 @@ Gem::Specification.new do |s|
   s.description              = "Convert Roman numbers to Indian"
   s.license                  = "MIT"
   s.rubyforge_project        = "roman"
-  s.files                    = Dir.glob("lib/**/*")
+  s.files                    = Dir.glob("lib/**/*") + ["LICENSE"]
   s.test_files               = Dir.glob("spec/**/*")
   s.require_paths            = ["lib"]
 
+  s.add_dependency "simple_validation"
+
   s.add_development_dependency "rake"
   s.add_development_dependency "minitest"
+  s.add_development_dependency "minitest-reporters"
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'yard'
 end
