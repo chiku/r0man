@@ -15,11 +15,11 @@ module R0man
     end
 
     def to_s
-      "#{name}(#{value})"
+      name
     end
 
     def inspect
-      to_s
+      "#{name}(#{value})"
     end
 
     def greater_than?(other_digit)

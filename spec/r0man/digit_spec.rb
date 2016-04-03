@@ -20,7 +20,7 @@ describe 'Roman digit' do
   end
 
   it 'has a string representation' do
-    R0man::Digit::X.to_s.must_equal 'X(10)'
+    R0man::Digit::X.to_s.must_equal 'X'
   end
 
   it 'is inspectable' do

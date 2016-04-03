@@ -25,7 +25,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IIII') }
 
     it 'has errors' do
-      number.errors.must_equal ['I(1) occurs 4 times whereas it is allowed only 3 times']
+      number.errors.must_equal ['I occurs 4 times whereas it is allowed only 3 times']
     end
   end
 
@@ -33,7 +33,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('VV') }
 
     it 'has errors' do
-      number.errors.must_equal ['V(5) occurs 2 times whereas it is allowed only 1 times']
+      number.errors.must_equal ['V occurs 2 times whereas it is allowed only 1 times']
     end
   end
 
@@ -65,7 +65,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IL') }
 
     it 'has errors' do
-      number.errors.must_equal ['I(1) cannot be subtracted from L(50)']
+      number.errors.must_equal ['I cannot be subtracted from L']
     end
   end
 
@@ -73,7 +73,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IXI') }
 
     it 'has errors' do
-      number.errors.must_equal ['I(1) cannot be added to and subtracted from X(10)']
+      number.errors.must_equal ['I cannot be added to and subtracted from the same X']
     end
   end
 end

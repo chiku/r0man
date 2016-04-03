@@ -46,7 +46,7 @@ module R0man
 
     def same_digit_is_not_added_to_and_subtracted_from_a_larger_digit
       @valid.each_cons(3) do |d1, d2, d3|
-        add_error("#{d1} cannot be added to and subtracted from #{d2}") if d1 == d3 && d2.greater_than?(d1)
+        add_error("#{d1} cannot be added to and subtracted from the same #{d2}") if d1 == d3 && d2.greater_than?(d1)
       end
     end
   end
