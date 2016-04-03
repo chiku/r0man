@@ -1,6 +1,7 @@
-require "simple_validation"
+require 'simple_validation'
 
 module R0man
+  # Number understands convertion of Roman numbers to Indian numbers
   class Number
     include SimpleValidation
 
@@ -21,13 +22,13 @@ module R0man
     end
 
     def value
-      @value ||= @valid.each_cons(2).reduce(0) { |result, (d1, d2)| result += d1.value_compared_to(d2) } + @valid.last.value
+      @value ||= @valid.each_cons(2).reduce(0) { |result, (d1, d2)| result + d1.value_compared_to(d2) } + @valid.last.value
     end
 
     private
 
     def digits_are_valid
-      add_error("Number contains invalid characters: #{@invalid.map(&:name).join(", ")}") unless @invalid.empty?
+      add_error("Number contains invalid characters: #{@invalid.map(&:name).join(', ')}") unless @invalid.empty?
     end
 
     def maximum_consecutive_counts_are_inside_limits
@@ -39,13 +40,13 @@ module R0man
 
     def previous_digit_are_allowed
       @valid.each_cons(2) do |d1, d2|
-        add_error("#{d1} cannot be subtracted from #{d2}") if (!d1.allows_next_digit?(d2) && d2.greater_than?(d1))
+        add_error("#{d1} cannot be subtracted from #{d2}") if !d1.allows_next_digit?(d2) && d2.greater_than?(d1)
       end
     end
 
     def same_digit_is_not_added_to_and_subtracted_from_a_larger_digit
       @valid.each_cons(3) do |d1, d2, d3|
-        add_error("#{d1} cannot be added to and subtracted from #{d2}") if (d1 == d3 && d2.greater_than?(d1))
+        add_error("#{d1} cannot be added to and subtracted from #{d2}") if d1 == d3 && d2.greater_than?(d1)
       end
     end
   end

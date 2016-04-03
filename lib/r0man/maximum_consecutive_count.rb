@@ -1,4 +1,5 @@
 module R0man
+  # MaximumConsecutiveCount understands the longest consecutive occurance of the given item in an array
   class MaximumConsecutiveCount
     class << self
       def for(array)
@@ -11,11 +12,7 @@ module R0man
       current_count = 1
 
       (array + [Float::NAN]).each_cons(2) do |item, next_item|
-        if item == next_item
-          current_count += 1
-        else
-          current_count = 1
-        end
+        current_count = item == next_item ? current_count + 1 : 1
         counts[item] = current_count if current_count > counts[item]
       end
 
