@@ -3,11 +3,11 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require "roman/version"
+require "r0man/version"
 
 Gem::Specification.new do |s|
-  s.name                     = "roman"
-  s.version                  = Roman::VERSION
+  s.name                     = "r0man"
+  s.version                  = R0man::VERSION
   s.authors                  = ["Chirantan Mitra"]
   s.email                    = ["chirantan.mitra@gmail.com"]
   s.summary                  = "Roman number conversions"

@@ -1,13 +1,13 @@
 require_relative "../spec_helper"
 
-require_relative "../../lib/roman/digit"
-require_relative "../../lib/roman/number"
-require_relative "../../lib/roman/maximum_consecutive_count"
+require_relative "../../lib/r0man/digit"
+require_relative "../../lib/r0man/number"
+require_relative "../../lib/r0man/maximum_consecutive_count"
 
 describe "Roman number" do
   describe ".parse" do
     describe "when all values are same" do
-      let(:number) { Roman::Number.parse("III") }
+      let(:number) { R0man::Number.parse("III") }
 
       it "is the sum of the values" do
         number.value.must_equal 3
@@ -15,7 +15,7 @@ describe "Roman number" do
     end
 
     describe "when a smaller digit follows a larger digit" do
-      let(:number) { Roman::Number.parse("VI") }
+      let(:number) { R0man::Number.parse("VI") }
 
       it "is the sum of the values" do
         number.value.must_equal 6
@@ -23,7 +23,7 @@ describe "Roman number" do
     end
 
     describe "when a smaller digit preceeds a larger digit" do
-      let(:number) { Roman::Number.parse("IV") }
+      let(:number) { R0man::Number.parse("IV") }
 
       it "the value of the smaller digit is subtracted" do
         number.value.must_equal 4
@@ -31,7 +31,7 @@ describe "Roman number" do
     end
 
     describe "when a smaller digit is between larger digits" do
-      let(:number) { Roman::Number.parse("VIV") }
+      let(:number) { R0man::Number.parse("VIV") }
 
       it "the value of the smaller digit is subtracted from the sum of the larger digits" do
         number.value.must_equal 9
@@ -39,7 +39,7 @@ describe "Roman number" do
     end
 
     describe "when all letters are known" do
-      let(:number) { Roman::Number.parse("IV") }
+      let(:number) { R0man::Number.parse("IV") }
 
       it "creates a roman number out of them" do
         number.value.must_equal 4
@@ -51,7 +51,7 @@ describe "Roman number" do
     end
 
     describe "when some letters are unknown" do
-      let(:number) { Roman::Number.parse("ISVG") }
+      let(:number) { R0man::Number.parse("ISVG") }
 
       it "creates a roman number out of the identified letters" do
         number.value.must_equal 4

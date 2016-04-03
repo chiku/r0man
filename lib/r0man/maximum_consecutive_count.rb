@@ -1,4 +1,4 @@
-module Roman
+module R0man
   class MaximumConsecutiveCount
     class << self
       def for(array)

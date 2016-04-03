@@ -1,4 +1,4 @@
-module Roman
+module R0man
   class Digit
     attr_reader :value, :name, :max_consecutive_allowed, :allowed_next_digits
 
@@ -61,7 +61,7 @@ module Roman
       protected :new
 
       def parse(letter)
-        Roman::Digit::LOOKUP[letter.upcase] || Invalid.new(letter)
+        LOOKUP[letter.upcase] || Invalid.new(letter)
       end
     end
   end

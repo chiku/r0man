@@ -1,6 +1,6 @@
 require "simple_validation"
 
-module Roman
+module R0man
   class Number
     include SimpleValidation
 
@@ -16,7 +16,7 @@ module Roman
     end
 
     def initialize(str)
-      digits = str.each_char.map { |d| Roman::Digit.parse(d) }
+      digits = str.each_char.map { |d| Digit.parse(d) }
       @valid, @invalid = digits.partition(&:valid?)
     end
 
@@ -31,7 +31,7 @@ module Roman
     end
 
     def maximum_consecutive_counts_are_inside_limits
-      Roman::MaximumConsecutiveCount.for(@valid).each do |digit, count|
+      MaximumConsecutiveCount.for(@valid).each do |digit, count|
         tolerance = digit.max_consecutive_allowed
         add_error("#{digit} occurs #{count} times whereas it is allowed only #{tolerance} times") if count > tolerance
       end
