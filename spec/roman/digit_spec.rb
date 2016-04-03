@@ -19,6 +19,14 @@ describe "Roman digit" do
     Roman::Digit::X.must_equal Roman::Digit::X
   end
 
+  it "has a string representation" do
+    Roman::Digit::X.to_s.must_equal "X(10)"
+  end
+
+  it "is inspectable" do
+    Roman::Digit::X.inspect.must_equal "X(10)"
+  end
+
   describe "when compared to a smaller digit" do
     it "has a positive value" do
       Roman::Digit::X.value_compared_to(Roman::Digit::V).must_equal 10
