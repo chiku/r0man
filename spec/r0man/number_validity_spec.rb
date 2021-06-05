@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../spec_helper'
 
 require_relative '../../lib/r0man/digit'
@@ -9,7 +11,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('III') }
 
     it 'has no errors' do
-      number.errors.must_be_empty
+      expect(number.errors).must_be_empty
     end
   end
 
@@ -17,7 +19,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('V') }
 
     it 'has no errors' do
-      number.errors.must_be_empty
+      expect(number.errors).must_be_empty
     end
   end
 
@@ -25,7 +27,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IIII') }
 
     it 'has errors' do
-      number.errors.must_equal ['I occurs 4 times whereas it is allowed only 3 times']
+      expect(number.errors).must_equal(['I occurs 4 times whereas it is allowed only 3 times'])
     end
   end
 
@@ -33,7 +35,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('VV') }
 
     it 'has errors' do
-      number.errors.must_equal ['V occurs 2 times whereas it is allowed only 1 times']
+      expect(number.errors).must_equal(['V occurs 2 times whereas it is allowed only 1 times'])
     end
   end
 
@@ -41,7 +43,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IV') }
 
     it 'has no errors' do
-      number.errors.must_be_empty
+      expect(number.errors).must_be_empty
     end
   end
 
@@ -49,7 +51,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IX') }
 
     it 'has no errors' do
-      number.errors.must_be_empty
+      expect(number.errors).must_be_empty
     end
   end
 
@@ -57,7 +59,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('XLI') }
 
     it 'has no errors' do
-      number.errors.must_be_empty
+      expect(number.errors).must_be_empty
     end
   end
 
@@ -65,7 +67,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IL') }
 
     it 'has errors' do
-      number.errors.must_equal ['I cannot be subtracted from L']
+      expect(number.errors).must_equal(['I cannot be subtracted from L'])
     end
   end
 
@@ -73,7 +75,7 @@ describe 'Roman number' do
     let(:number) { R0man::Number.parse('IXI') }
 
     it 'has errors' do
-      number.errors.must_equal ['I cannot be added to and subtracted from the same X']
+      expect(number.errors).must_equal(['I cannot be added to and subtracted from the same X'])
     end
   end
 end

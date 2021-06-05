@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simple_validation'
 
 module R0man
@@ -10,10 +12,8 @@ module R0man
     validate :previous_digit_are_allowed
     validate :same_digit_is_not_added_to_and_subtracted_from_a_larger_digit
 
-    class << self
-      def parse(str)
-        new(str)
-      end
+    def self.parse(str)
+      new(str)
     end
 
     def initialize(str)
@@ -22,7 +22,9 @@ module R0man
     end
 
     def value
-      @value ||= @valid.each_cons(2).reduce(0) { |result, (d1, d2)| result + d1.value_compared_to(d2) } + @valid.last.value
+      @value ||= @valid.each_cons(2).reduce(0) do |result, (d1, d2)|
+        result + d1.value_compared_to(d2)
+      end + @valid.last.value
     end
 
     private
