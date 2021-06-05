@@ -1,3 +1,5 @@
+![Build Status](https://github.com/chiku/r0man/actions/workflows/build.yml/badge.svg)
+
 Overview
 --------
 
