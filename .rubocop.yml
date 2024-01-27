@@ -15,18 +15,13 @@ Metrics/ModuleLength:
     - 'spec/**/*.rb'
 
 Layout/ClassStructure:
-  Enabled: false
+  Exclude:
+    - 'lib/r0man/digit.rb'
 
 Style/Copyright:
   Enabled: false
 
 Style/DocumentationMethod:
-  Enabled: false
-
-Style/ConstantVisibility:
-  Enabled: false
-
-Style/MethodCalledOnDoEndBlock:
   Enabled: false
 
 Lint/ConstantResolution:

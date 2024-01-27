@@ -22,9 +22,9 @@ module R0man
     end
 
     def value
-      @value ||= @valid.each_cons(2).reduce(0) do |result, (d1, d2)|
+      @value ||= @valid.each_cons(2).reduce(0) { |result, (d1, d2)|
         result + d1.value_compared_to(d2)
-      end + @valid.last.value
+      } + @valid.last.value
     end
 
     private
