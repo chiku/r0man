@@ -8,7 +8,7 @@ Overview
 Dependencies
 ------------
 
-*r0man* depends on *simple_validation*. It runs with ruby 1.9+ or compatible versions. Ruby 1.8 isn't supported.
+*r0man* depends on *simple_validation*. It runs with ruby 2.7+ or compatible versions.
 
 Installation
 ------------
