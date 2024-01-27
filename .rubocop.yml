@@ -3,7 +3,7 @@ require:
   - rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
   EnabledByDefault: true
 
 Metrics/BlockLength:
@@ -30,4 +30,7 @@ Style/MethodCalledOnDoEndBlock:
   Enabled: false
 
 Lint/ConstantResolution:
+  Enabled: false
+
+Bundler/GemComment:
   Enabled: false

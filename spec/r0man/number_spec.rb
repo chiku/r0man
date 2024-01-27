@@ -3,8 +3,8 @@
 require_relative '../spec_helper'
 
 require_relative '../../lib/r0man/digit'
-require_relative '../../lib/r0man/number'
 require_relative '../../lib/r0man/maximum_consecutive_count'
+require_relative '../../lib/r0man/number'
 
 describe 'Roman number' do
   describe '.parse' do

@@ -15,17 +15,10 @@ Gem::Specification.new do |s|
   s.license                  = 'MIT'
   s.rubyforge_project        = 'roman'
   s.files                    = Dir.glob('lib/**/*') + ['LICENSE']
-  s.test_files               = Dir.glob('spec/**/*')
   s.require_paths            = ['lib']
-  s.required_ruby_version    = '>= 2.5'
+  s.required_ruby_version    = '>= 2.7'
 
-  s.add_dependency('simple_validation')
+  s.add_runtime_dependency('simple_validation', '~> 0.2.1')
 
-  s.add_development_dependency('minitest')
-  s.add_development_dependency('minitest-reporters')
-  s.add_development_dependency('rake')
-  s.add_development_dependency('rubocop')
-  s.add_development_dependency('rubocop-minitest')
-  s.add_development_dependency('rubocop-rake')
-  s.add_development_dependency('simplecov')
+  s.metadata['rubygems_mfa_required'] = 'true'
 end
